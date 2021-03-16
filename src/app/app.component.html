@@ -1,11 +1,30 @@
 <header>
-  The header.
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Sipos's shows</a>
+      <button class="navbar-toggler"type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item " [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['dashboard']">Dashboard</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['shows']">Shows</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
-<main>
+<main role="main" class="container">
   <router-outlet></router-outlet>
 </main>
 
-<footer>
-
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Webpage made as homework for the subject Client Applications by Sipos Balázs.</span>
+  </div>
 </footer>
