@@ -9,7 +9,6 @@ import {Show} from '../Show';
 })
 export class ShowsComponent implements OnInit {
   shows: Show[] = [];
-  selectedShow?: Show;
 
   constructor(private showService: ShowService) {
   }
@@ -20,9 +19,5 @@ export class ShowsComponent implements OnInit {
 
   getShows(): void{
     this.showService.getShows().subscribe(shows => this.shows = shows);
-  }
-
-  onSelect(show: Show): void {
-    this.selectedShow = show;
   }
 }

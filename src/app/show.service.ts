@@ -14,4 +14,8 @@ export class ShowService {
   getShows(): Observable<Show[]> {
     return of(SHOWS);
   }
+
+  getShow(id: number): Observable<Show> {
+    return of(SHOWS.find(s => s.id === id));
+  }
 }

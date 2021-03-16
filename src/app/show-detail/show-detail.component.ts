@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Show} from '../Show';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {ShowService} from '../show.service';
 
 @Component({
   selector: 'app-show-detail',
@@ -7,13 +10,25 @@ import {Show} from '../Show';
   styleUrls: ['./show-detail.component.css']
 })
 export class ShowDetailComponent implements OnInit {
+  show: Show;
 
-  @Input()
-  show?: Show;
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private showService: ShowService,
+    private location: Location
+  ) {
   }
 
+  ngOnInit(): void {
+    this.getShow();
+  }
+
+  private getShow(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.showService.getShow(id).subscribe(show => this.show = show);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

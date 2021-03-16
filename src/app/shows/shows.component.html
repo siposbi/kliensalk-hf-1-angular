@@ -1,7 +1,8 @@
 <h2>My SHOWS</h2>
 <ul class="shows">
-  <li *ngFor="let show of shows" (click)="onSelect(show)">
-    <span class="badge">{{show.title}}</span> {{show.imdbUrl}}
+  <li *ngFor="let show of shows">
+    <a routerLink="/detail/{{show.id}}">
+      <span class="badge">{{show.id}}</span> {{show.title}}
+    </a>
   </li>
 </ul>
-<app-show-detail [show]="selectedShow"></app-show-detail>
