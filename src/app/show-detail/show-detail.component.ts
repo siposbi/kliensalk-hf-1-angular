@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Show} from '../Show';
+import {Show} from '../model/Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {ShowService} from '../show.service';
+import {ShowService} from '../model/api/show.service';
 
 @Component({
   selector: 'app-show-detail',

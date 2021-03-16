@@ -9,7 +9,8 @@
   </div>
   <div class="mb-3">
     <label for="releaseDate" class="form-label">Release date:</label>
-    <input type="date" class="form-control" id="releaseDate"  [ngModel]="show.releaseDate | date:'yyyy-MM-dd'" (ngModelChange)="show.releaseDate = $event">
+    <input type="date" class="form-control" id="releaseDate" [ngModel]="show.releaseDate | date:'yyyy-MM-dd'"
+           (ngModelChange)="show.releaseDate = $event">
   </div>
   <div class="mb-3">
     <label for="imdbUrl" class="form-label">IMDB Url:</label>

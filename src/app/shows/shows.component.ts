@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ShowService} from '../show.service';
-import {Show} from '../Show';
+import {ShowService} from '../model/api/show.service';
+import {Show} from '../model/Show';
 
 @Component({
   selector: 'app-shows',
@@ -17,7 +17,7 @@ export class ShowsComponent implements OnInit {
     this.getShows();
   }
 
-  getShows(): void{
+  getShows(): void {
     this.showService.getShows().subscribe(shows => this.shows = shows);
   }
 }

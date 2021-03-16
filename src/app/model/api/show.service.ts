@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Show} from './Show';
+import {Show} from '../Show';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
@@ -27,7 +27,7 @@ export class ShowService {
   getShow(id: number): Observable<Show> {
     const url = `${this.showsUrl}/${id}`;
     return this.http.get<Show>(url).pipe(
-      catchError(this.handleError<Show>(`getHero id=${id}`))
+      catchError(this.handleError<Show>(`getShow id=${id}`))
     );
   }
 
