@@ -3,7 +3,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Title</th>
-    <th scope="col">Release date</th>
+    <th scope="col">Year</th>
     <th scope="col">IMDB</th>
     <th scope="col">Netflix</th>
     <th scope="col">My rating</th>
@@ -15,7 +15,7 @@
     <td>
       <a [routerLink]="['./shows/', show.id]">{{show.title}}</a>
     </td>
-    <td>{{show.releaseDate | date: 'yyyy-MM-dd'}}</td>
+    <td>{{show.releaseYear}}</td>
     <td>
       <a href="{{show.imdbUrl}}">Link</a>
     </td>

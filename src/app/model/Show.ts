@@ -1,7 +1,7 @@
 export interface Show {
   id: number;
   title: string;
-  releaseDate: Date;
+  releaseYear: number;
   imdbUrl: string;
   netflixUrl: string;
   myRating: number;
