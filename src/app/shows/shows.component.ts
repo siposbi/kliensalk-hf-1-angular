@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SHOWS} from '../mock-shows';
+import {ShowService} from '../show.service';
 import {Show} from '../Show';
 
 @Component({
@@ -8,13 +8,18 @@ import {Show} from '../Show';
   styleUrls: ['./shows.component.css']
 })
 export class ShowsComponent implements OnInit {
-  shows = SHOWS;
+  shows: Show[] = [];
   selectedShow?: Show;
 
-  constructor() {
+  constructor(private showService: ShowService) {
   }
 
   ngOnInit(): void {
+    this.getShows();
+  }
+
+  getShows(): void{
+    this.showService.getShows().subscribe(shows => this.shows = shows);
   }
 
   onSelect(show: Show): void {
