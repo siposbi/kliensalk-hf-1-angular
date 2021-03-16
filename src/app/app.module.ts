@@ -5,11 +5,13 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ShowsComponent} from './shows/shows.component';
 import {FormsModule} from '@angular/forms';
+import { ShowDetailComponent } from './show-detail/show-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowsComponent
+    ShowsComponent,
+    ShowDetailComponent
   ],
   imports: [
     BrowserModule,

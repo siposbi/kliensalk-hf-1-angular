@@ -4,11 +4,4 @@
     <span class="badge">{{show.title}}</span> {{show.imdbUrl}}
   </li>
 </ul>
-<div *ngIf="selectedShow">
-  <h2>{{selectedShow.title | uppercase}} Details</h2>
-  <div><span>title: </span>{{selectedShow.title}}</div>
-  <div>
-    <label for="show-name">Show title name: </label>
-    <input id="show-name" [(ngModel)]="selectedShow.title" placeholder="title">
-  </div>
-</div>
+<app-show-detail [show]="selectedShow"></app-show-detail>

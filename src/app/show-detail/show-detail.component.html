@@ -1,0 +1,8 @@
+<div *ngIf="show">
+  <h2>{{show.title | uppercase}} Details</h2>
+  <div><span>title: </span>{{show.title}}</div>
+  <div>
+    <label for="show-name">Show title name: </label>
+    <input id="show-name" [(ngModel)]="show.title" placeholder="title">
+  </div>
+</div>
