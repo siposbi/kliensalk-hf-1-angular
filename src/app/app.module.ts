@@ -11,13 +11,16 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {Four04Component} from './four04/four04.component';
+import {ShowEditComponent} from './show-edit/show-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowsComponent,
+    ShowEditComponent,
     ShowDetailComponent,
-    Four04Component
+    Four04Component,
+    ShowEditComponent
   ],
   imports: [
     BrowserModule,

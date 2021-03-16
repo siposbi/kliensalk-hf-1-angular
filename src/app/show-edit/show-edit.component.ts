@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Show} from '../Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ShowService} from '../show.service';
 
 @Component({
-  selector: 'app-show-detail',
-  templateUrl: './show-detail.component.html',
-  styleUrls: ['./show-detail.component.css']
+  selector: 'app-show-edit',
+  templateUrl: './show-edit.component.html',
+  styleUrls: ['./show-edit.component.css']
 })
-export class ShowDetailComponent implements OnInit {
+export class ShowEditComponent implements OnInit {
+
+  @Input()
   show: Show;
 
   constructor(

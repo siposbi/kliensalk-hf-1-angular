@@ -1,7 +1,7 @@
 <h2>My SHOWS</h2>
 <ul class="shows">
   <li *ngFor="let show of shows">
-    <a routerLink="/detail/{{show.id}}">
+    <a [routerLink]="['./shows/', show.id]">
       <span class="badge">{{show.id}}</span> {{show.title}}
     </a>
   </li>
