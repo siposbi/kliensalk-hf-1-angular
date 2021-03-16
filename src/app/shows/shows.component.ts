@@ -8,7 +8,11 @@ import {Show} from '../model/Show';
   styleUrls: ['./shows.component.css']
 })
 export class ShowsComponent implements OnInit {
-  shows: Show[] = [];
+  shows: Show[];
+  showsUnPaginated: Show[] = [];
+  page = 1;
+  pageSize = 10;
+  collectionSize;
 
   constructor(private showService: ShowService) {
   }
@@ -18,6 +22,16 @@ export class ShowsComponent implements OnInit {
   }
 
   getShows(): void {
-    this.showService.getShows().subscribe(shows => this.shows = shows);
+    this.showService.getShows().subscribe(shows => {
+      this.showsUnPaginated = shows;
+      this.collectionSize = shows.length;
+      this.refreshShows();
+    });
+  }
+
+  refreshShows(): void {
+    this.shows = this.showsUnPaginated
+      .map((show, i) => ({id: i + 1, ...show}))
+      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 }

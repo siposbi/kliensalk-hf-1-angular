@@ -28,3 +28,15 @@
   </tr>
   </tbody>
 </table>
+
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshShows()">
+  </ngb-pagination>
+
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshShows()">
+    <option [ngValue]="5">5 items per page</option>
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="25">25 items per page</option>
+    <option [ngValue]="50">50 items per page</option>
+  </select>
+</div>
