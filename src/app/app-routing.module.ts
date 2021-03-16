@@ -8,6 +8,7 @@ import {ShowEditComponent} from './show-edit/show-edit.component';
 const routes: Routes = [
   {path: '', component: ShowsComponent},
   {path: 'shows', redirectTo: '', pathMatch: 'full'},
+  {path: 'shows/new', component: ShowEditComponent},
   {path: 'shows/:id', component: ShowDetailComponent},
   {path: 'shows/:id/edit', component: ShowEditComponent},
   {path: '**', component: Four04Component}

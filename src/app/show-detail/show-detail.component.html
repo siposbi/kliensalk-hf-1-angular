@@ -11,7 +11,7 @@
         <p class="card-text">{{show.releaseYear}}</p>
         <p class="card-text">{{show.myRating}}</p>
         <div class="row">
-          <a class="btn btn-primary" [routerLink]="'..'">Go back</a>
+          <a class="btn btn-primary" (click)="goBack()">Go back</a>
           <a class="btn btn-primary" [routerLink]="'./edit'">Edit</a>
           <a class="btn btn-primary" (click)="remove()">Remove</a>
         </div>

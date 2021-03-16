@@ -1,7 +1,7 @@
 <div *ngIf="show">
   <div class="mb-3">
     <label for="showId" class="form-label">ID:</label>
-    <input type="number" class="form-control" id="showId" [(ngModel)]="show.id">
+    <input type="number" class="form-control" id="showId" [(ngModel)]="show.id" disabled>
   </div>
   <div class="mb-3">
     <label for="showTitle" class="form-label">Title:</label>
@@ -23,6 +23,6 @@
     <label for="myRating" class="form-label">My rating:</label>
     <input type="range" class="form-control" id="myRating" min="1" max="5" [(ngModel)]="show.myRating">
   </div>
-  <button class="btn btn-primary" (click)="save()">save</button>
+  <button class="btn btn-primary" (click)="save()">Save</button>
+  <button class="btn btn-primary" (click)="goBack()">Go back</button>
 </div>
-<button class="btn btn-primary" (click)="goBack()">go back</button>

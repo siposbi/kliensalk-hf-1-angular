@@ -31,4 +31,8 @@ export class ShowDetailComponent implements OnInit {
   remove(): void {
     this.showService.deleteShow(this.show.id);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

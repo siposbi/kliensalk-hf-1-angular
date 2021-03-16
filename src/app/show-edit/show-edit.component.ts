@@ -22,11 +22,23 @@ export class ShowEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getShow();
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    if (id !== 0) {
+      this.getShow(id);
+    } else {
+      this.show = {
+        id: undefined,
+        title: '',
+        releaseYear: undefined,
+        imdbUrl: '',
+        netflixUrl: '',
+        myRating: undefined,
+      };
+    }
   }
 
-  private getShow(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  private getShow(id: number): void {
     this.showService.getShow(id).subscribe(show => this.show = show);
   }
 
@@ -35,6 +47,10 @@ export class ShowEditComponent implements OnInit {
   }
 
   save(): void {
+    if (this.route.snapshot.url[1].path === 'new'){
+      this.showService.addShow(this.show).subscribe(() => this.goBack());
+      return;
+    }
     this.showService.updateShow(this.show).subscribe(() => this.goBack());
   }
 }

@@ -48,14 +48,14 @@ export class ShowService {
     );
   }
 
-  addShow(hero: Show): Observable<Show> {
-    return this.http.post<Show>(this.showsUrl, hero, this.httpOptions).pipe(
+  addShow(show: Show): Observable<Show> {
+    return this.http.post<Show>(this.showsUrl, show, this.httpOptions).pipe(
       catchError(this.handleError<Show>('addShow'))
     );
   }
 
-  deleteShow(hero: Show | number): Observable<Show> {
-    const id = typeof hero === 'number' ? hero : hero.id;
+  deleteShow(show: Show | number): Observable<Show> {
+    const id = typeof show === 'number' ? show : show.id;
     const url = `${this.showsUrl}/${id}`;
 
     return this.http.delete<Show>(url, this.httpOptions).pipe(
