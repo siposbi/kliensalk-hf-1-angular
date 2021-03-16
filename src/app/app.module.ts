@@ -11,13 +11,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
+import { Four04Component } from './four04/four04.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ShowsComponent,
-    ShowDetailComponent
+    ShowDetailComponent,
+    Four04Component
   ],
   imports: [
     BrowserModule,
