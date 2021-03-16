@@ -5,18 +5,16 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ShowsComponent} from './shows/shows.component';
 import {FormsModule} from '@angular/forms';
-import { ShowDetailComponent } from './show-detail/show-detail.component';
-import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import {ShowDetailComponent} from './show-detail/show-detail.component';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
-import { Four04Component } from './four04/four04.component';
+import {Four04Component} from './four04/four04.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     ShowsComponent,
     ShowDetailComponent,
     Four04Component
@@ -28,7 +26,7 @@ import { Four04Component } from './four04/four04.component';
     HttpClientModule,
     NgbModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService, {dataEncapsulation: false}
     )
   ],
   providers: [],

@@ -2,16 +2,16 @@
   <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Sipos's shows</a>
-      <button class="navbar-toggler"type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item " [routerLinkActive]="['active']">
-            <a class="nav-link" [routerLink]="['dashboard']">Dashboard</a>
-          </li>
           <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" [routerLink]="['shows']">Shows</a>
+            <a class="nav-link" [routerLink]="['']">My Shows</a>
+          </li>
+          <li class="nav-item " [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['**']">About Me</a>
           </li>
         </ul>
       </div>
