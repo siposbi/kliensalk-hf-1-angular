@@ -1,0 +1,9 @@
+<h1>{{show.title}}</h1>
+<div><span>Release Date: </span>{{show.releaseDate.toLocaleDateString()}}</div>
+<div><span>IMDB: </span>{{show.imdbUrl}}</div>
+<div><span>Netflix: </span>{{show.netflixUrl}}</div>
+<div><span>My rating: </span>{{show.myRating}}</div>
+<div>
+  <label for="title">Show title: </label>
+  <input id="title" [(ngModel)]="show.title" placeholder="title">
+</div>
