@@ -1,2 +1,29 @@
-<h1>{{show.title}}</h1>
-<button class="btn btn-primary" [routerLink]="['./edit', show]"></button>
+<div class="card">
+  <div class="row">
+    <div class="col-auto">
+      <img src="//placehold.it/200x300" class="img-fluid" alt="">
+    </div>
+    <div class="col">
+      <div class="card-block">
+        <h4 class="card-title">{{show.title}}</h4>
+        <p class="card-text">{{show.imdbUrl}}</p>
+        <p class="card-text">{{show.netflixUrl}}</p>
+        <p class="card-text">{{show.releaseDate}}</p>
+        <p class="card-text">{{show.myRating}}</p>
+        <div class="row">
+          <a class="btn btn-primary" [routerLink]="'..'">Go back</a>
+          <a class="btn btn-primary" [routerLink]="'./edit'">Edit</a>
+          <a class="btn btn-primary" (click)="remove()">Remove</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="row">
+        <img src="//placehold.it/200x50" class="img-fluid" alt="">
+      </div>
+      <div class="row">
+        <img src="//placehold.it/200x50" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+</div>
