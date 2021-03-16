@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SHOWS} from '../mock-shows';
+import {Show} from '../Show';
 
 @Component({
   selector: 'app-shows',
@@ -8,6 +9,7 @@ import {SHOWS} from '../mock-shows';
 })
 export class ShowsComponent implements OnInit {
   shows = SHOWS;
+  selectedShow?: Show;
 
   constructor() {
   }
@@ -15,4 +17,7 @@ export class ShowsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelect(show: Show): void {
+    this.selectedShow = show;
+  }
 }
