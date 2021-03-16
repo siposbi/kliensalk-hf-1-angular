@@ -33,6 +33,7 @@ export class ShowDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.showService.updateShow(this.show).subscribe(() => this.goBack());
+    console.log(this.show);
+    // this.showService.updateShow(this.show).subscribe(() => this.goBack());
   }
 }
