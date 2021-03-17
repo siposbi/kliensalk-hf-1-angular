@@ -6,13 +6,17 @@
     <div class="col-auto">
       <img class="img-fluid" src="{{show.coverUrl}}" alt="...">
     </div>
-    <div class="col">
+    <div class="col m-auto">
       <div class="card-body">
-        <h4 class="card-title">{{show.title}}</h4>
-        <p class="card-text">{{show.releaseYear}}</p>
-        <p class="card-text">{{show.imdbUrl}}</p>
-        <p class="card-text">{{show.netflixUrl}}</p>
-        <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true">
+        <h2 class="card-title mb-0">{{show.title}}</h2>
+        <p class="card-text ml-1">{{show.releaseYear}}</p>
+        <p class="card-text my-2">{{show.imdbUrl}}</p>
+        <p class="card-text my-2">{{show.netflixUrl}}</p>
+        <div class="row mt-4 mx-auto">
+          <a href="{{show.imdbUrl}}" target="_blank" class="mr-4">Link to IMDb</a>
+          <a href="{{show.netflixUrl}}" target="_blank" class="">Link to Netflix</a>
+        </div>
+        <ngb-rating class="mt-3" [rate]="show.myRating" [max]="5" [readonly]="true">
           <ng-template let-fill="fill" let-index="index">
             <span class="star" [class.filled]="fill === 100">&#9733;</span>
           </ng-template>
