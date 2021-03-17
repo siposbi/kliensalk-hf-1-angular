@@ -3,6 +3,7 @@ import {Show} from '../model/Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ShowService} from '../model/api/show.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-show-detail',
@@ -15,7 +16,8 @@ export class ShowDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private showService: ShowService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) {
   }
 
@@ -29,10 +31,16 @@ export class ShowDetailComponent implements OnInit {
   }
 
   remove(): void {
-    this.showService.deleteShow(this.show.id);
+    this.showService.deleteShow(this.show.id).subscribe(() => this.goBack());
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  openModal(content): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(response => {
+      this.remove();
+    }, reason => {});
   }
 }

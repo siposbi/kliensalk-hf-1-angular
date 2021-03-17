@@ -37,7 +37,7 @@ export class ShowEditComponent implements OnInit {
         myRating: undefined,
       };
     }
-    if (this.isInEditMode) {
+    if (!this.isInEditMode) {
       this.pageTitle = 'Add a new show';
     }
   }

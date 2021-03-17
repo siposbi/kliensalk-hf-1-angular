@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="show">
   <div class="card-header">
     <h1>Viewing details of {{show.title}}</h1>
   </div>
@@ -27,6 +27,23 @@
   <div class="d-flex card-footer">
     <button class="btn btn-outline-danger mr-auto" (click)="goBack()">Go back</button>
     <button class="btn btn-outline-danger ml-2" [routerLink]="'./edit'">Edit</button>
-    <button class="btn btn-outline-danger ml-2" (click)="remove()">Remove</button>
+    <button class="btn btn-outline-danger ml-2" (click)="openModal(content)">Remove</button>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Warning!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>You are about to remove {{show.title}}.</p>
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Ok click')">Remove</button>
+  </div>
+</ng-template>
