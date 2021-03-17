@@ -1,9 +1,9 @@
-<div class="container row">
+<div class="row">
   <h1>My shows</h1>
   <button class="btn btn-primary ml-auto" (click)="changeView()">Change view</button>
 </div>
 
-<div *ngIf="listView">
+<div class="container" *ngIf="listView">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -38,9 +38,9 @@
 
 <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="!listView">
   <div class="col" *ngFor="let show of shows">
-    <div class="card" [routerLink]="['./shows/', show.id]">
+    <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{show.title}}</h5>
+        <a [routerLink]="['./shows/', show.id]" class="card-title h5">{{show.title}}</a>
         <h6 class="card-subtitle mb-2 text-muted">{{show.releaseYear}}</h6>
         <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true"></ngb-rating>
         <a href="{{show.imdbUrl}}" class="card-link">IMDb</a>
