@@ -13,6 +13,7 @@ export class ShowsComponent implements OnInit {
   page = 1;
   pageSize = 10;
   collectionSize;
+  listView = true;
 
   constructor(private showService: ShowService) {
   }
@@ -33,5 +34,9 @@ export class ShowsComponent implements OnInit {
     this.shows = this.showsUnPaginated
       .map((show, i) => ({id: i + 1, ...show}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  }
+
+  changeView(): void {
+    this.listView = !this.listView;
   }
 }
