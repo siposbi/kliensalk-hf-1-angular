@@ -1,0 +1,77 @@
+<div class="row">
+  <h1>My shows</h1>
+  <button class="btn btn-outline-danger ml-auto my-auto"
+          (click)="changeView()">{{listView ? 'Card view' : 'List view'}}</button>
+</div>
+
+<div class="table-responsive" *ngIf="listView">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col" class="d-none d-md-table-cell">IMDb</th>
+      <th scope="col" class="d-none d-md-table-cell">Netflix</th>
+      <th scope="col">My rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let show of shows; index as i">
+      <th scope="row">{{show.id}}</th>
+      <td>
+        <a class="text-danger font-weight-bold" [routerLink]="['./shows/', show.id]">{{show.title}}</a>
+      </td>
+      <td>{{show.releaseYear}}</td>
+      <td class="d-none d-md-table-cell">
+        <a href="{{show.imdbUrl}}" target="_blank">IMDb</a>
+      </td>
+      <td class="d-none d-md-table-cell">
+        <a href="{{show.netflixUrl}}" target="_blank">Netflix</a>
+      </td>
+      <td>
+        <div class="d-none d-md-block">
+          <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true"></ngb-rating>
+        </div>
+        <p class="d-md-none">{{show.myRating + '/5'}}</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row row-cols-md-2 row-cols-1" *ngIf="!listView">
+  <div class="col my-1" *ngFor="let show of shows">
+    <div class="card">
+      <div class="card-body text-center">
+        <a class="card-title h3 text-danger" [routerLink]="['./shows/', show.id]">{{show.title}}</a>
+        <p class="card-subtitle text-muted">{{show.releaseYear}}</p>
+      </div>
+      <div class="card-footer">
+        <div class="row justify-content-between mx-auto">
+          <a href="{{show.imdbUrl}}" class="card-link">IMDb</a>
+          <a href="{{show.netflixUrl}}" class="card-link">Netflix</a>
+          <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true">
+            <ng-template let-fill="fill" let-index="index">
+              <span class="star" [class.filled]="fill === 100">&#9733;</span>
+            </ng-template>
+          </ngb-rating>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshShows()">
+  </ngb-pagination>
+
+  <label>
+    <select class="custom-select w-auto" [(ngModel)]="pageSize" (ngModelChange)="refreshShows()">
+      <option [ngValue]="6">6 items per page</option>
+      <option [ngValue]="12">12 items per page</option>
+      <option [ngValue]="24">24 items per page</option>
+      <option [ngValue]="48">48 items per page</option>
+    </select>
+  </label>
+</div>

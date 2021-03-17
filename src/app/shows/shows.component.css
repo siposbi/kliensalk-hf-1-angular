@@ -1,0 +1,18 @@
+/deep/ .pagination > li > a {
+  color: #d9534f !important;
+}
+
+/deep/ .pagination > li.active > a {
+  color: #ffffff !important;
+  background-color: #d9534f !important;
+  border-color: #d9534f !important;
+}
+
+.star {
+  font-size: 1rem;
+  color: #def1ff;
+}
+
+.filled {
+  color: #01aff0;
+}
