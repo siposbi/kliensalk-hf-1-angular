@@ -1,6 +1,6 @@
 <div class="row">
   <h1>My shows</h1>
-  <button class="btn btn-primary ml-auto" (click)="changeView()">Change view</button>
+  <button class="btn btn-outline-danger ml-auto my-auto" (click)="changeView()">Change view</button>
 </div>
 
 <div class="container" *ngIf="listView">
@@ -54,10 +54,12 @@
   <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshShows()">
   </ngb-pagination>
 
-  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshShows()">
-    <option [ngValue]="5">5 items per page</option>
-    <option [ngValue]="10">10 items per page</option>
-    <option [ngValue]="25">25 items per page</option>
-    <option [ngValue]="50">50 items per page</option>
-  </select>
+  <label>
+    <select class="custom-select w-auto" [(ngModel)]="pageSize" (ngModelChange)="refreshShows()">
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="25">25 items per page</option>
+      <option [ngValue]="50">50 items per page</option>
+    </select>
+  </label>
 </div>

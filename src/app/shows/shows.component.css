@@ -1,0 +1,8 @@
+/deep/ .pagination>li>a {
+  color: #d9534f !important;
+}
+
+/deep/ .pagination>li.active>a {
+  color: #ffffff !important;
+  background-color: #d9534f !important;
+}
