@@ -12,7 +12,11 @@
         <p class="card-text">{{show.releaseYear}}</p>
         <p class="card-text">{{show.imdbUrl}}</p>
         <p class="card-text">{{show.netflixUrl}}</p>
-        <p class="card-text">{{show.myRating}}</p>
+        <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
       </div>
     </div>
   </div>
