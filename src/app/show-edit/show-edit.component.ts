@@ -47,7 +47,7 @@ export class ShowEditComponent implements OnInit {
   }
 
   save(): void {
-    if (this.route.snapshot.url[1].path === 'new'){
+    if (this.route.snapshot.url[1].path === 'new') {
       this.showService.addShow(this.show).subscribe(() => this.goBack());
       return;
     }
