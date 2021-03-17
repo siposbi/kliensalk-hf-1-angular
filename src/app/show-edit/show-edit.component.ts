@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
@@ -10,9 +10,9 @@ import {ShowService} from '../model/api/show.service';
   styleUrls: ['./show-edit.component.css']
 })
 export class ShowEditComponent implements OnInit {
-
-  @Input()
   show: Show;
+  pageTitle: string;
+  isInEditMode: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +23,6 @@ export class ShowEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
     if (id !== 0) {
       this.getShow(id);
     } else {
@@ -36,10 +35,17 @@ export class ShowEditComponent implements OnInit {
         myRating: undefined,
       };
     }
+    this.isInEditMode = this.route.snapshot.url[1].path !== 'new';
+    if (!this.isInEditMode) {
+      this.pageTitle = 'Add a new show';
+    }
   }
 
   private getShow(id: number): void {
-    this.showService.getShow(id).subscribe(show => this.show = show);
+    this.showService.getShow(id).subscribe(show => {
+      this.show = show;
+      this.pageTitle = `Editing ${show.title}`;
+    });
   }
 
   goBack(): void {
@@ -47,10 +53,10 @@ export class ShowEditComponent implements OnInit {
   }
 
   save(): void {
-    if (this.route.snapshot.url[1].path === 'new') {
+    if (this.isInEditMode) {
+      this.showService.updateShow(this.show).subscribe(() => this.goBack());
+    } else {
       this.showService.addShow(this.show).subscribe(() => this.goBack());
-      return;
     }
-    this.showService.updateShow(this.show).subscribe(() => this.goBack());
   }
 }
