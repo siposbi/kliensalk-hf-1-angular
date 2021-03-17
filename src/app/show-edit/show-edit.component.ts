@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
@@ -23,7 +23,8 @@ export class ShowEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    if (id !== 0) {
+    this.isInEditMode = id === 0;
+    if (!this.isInEditMode) {
       this.getShow(id);
     } else {
       this.show = {
@@ -35,8 +36,7 @@ export class ShowEditComponent implements OnInit {
         myRating: undefined,
       };
     }
-    this.isInEditMode = this.route.snapshot.url[1].path !== 'new';
-    if (!this.isInEditMode) {
+    if (this.isInEditMode) {
       this.pageTitle = 'Add a new show';
     }
   }
