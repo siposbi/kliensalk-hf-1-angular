@@ -8,6 +8,16 @@
   border-color: #d9534f !important;
 }
 
+/deep/ .page-link:focus {
+  border-color: #d9534f;
+  box-shadow: 0 0 0 0.2rem  #d9534f;
+}
+
+.custom-select:focus {
+  border-color: #d9534f;
+  box-shadow: 0 0 0 0.2rem  #d9534f;
+}
+
 .star {
   font-size: 1rem;
   color: #def1ff;
