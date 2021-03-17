@@ -1,29 +1,24 @@
 <div class="card">
+  <div class="card-header">
+    <h1>Viewing details of {{show.title}}</h1>
+  </div>
   <div class="row">
     <div class="col-auto">
-      <img src="//placehold.it/200x300" class="img-fluid" alt="">
+      <img class="img-fluid" src="{{show.coverUrl}}" alt="...">
     </div>
     <div class="col">
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">{{show.title}}</h4>
+        <p class="card-text">{{show.releaseYear}}</p>
         <p class="card-text">{{show.imdbUrl}}</p>
         <p class="card-text">{{show.netflixUrl}}</p>
-        <p class="card-text">{{show.releaseYear}}</p>
         <p class="card-text">{{show.myRating}}</p>
-        <div class="row">
-          <a class="btn btn-primary" (click)="goBack()">Go back</a>
-          <a class="btn btn-primary" [routerLink]="'./edit'">Edit</a>
-          <a class="btn btn-primary" (click)="remove()">Remove</a>
-        </div>
       </div>
     </div>
-    <div class="col-auto">
-      <div class="row">
-        <img src="//placehold.it/200x50" class="img-fluid" alt="">
-      </div>
-      <div class="row">
-        <img src="//placehold.it/200x50" class="img-fluid" alt="">
-      </div>
-    </div>
+  </div>
+  <div class="d-flex card-footer">
+    <button class="btn btn-outline-danger mr-auto" (click)="goBack()">Go back</button>
+    <button class="btn btn-outline-danger ml-2" [routerLink]="'./edit'">Edit</button>
+    <button class="btn btn-outline-danger ml-2" (click)="remove()">Remove</button>
   </div>
 </div>

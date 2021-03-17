@@ -33,6 +33,7 @@ export class ShowEditComponent implements OnInit {
         releaseYear: undefined,
         imdbUrl: '',
         netflixUrl: '',
+        coverUrl: undefined,
         myRating: undefined,
       };
     }

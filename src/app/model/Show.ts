@@ -5,4 +5,5 @@ export interface Show {
   imdbUrl: string;
   netflixUrl: string;
   myRating: number;
+  coverUrl: string;
 }
