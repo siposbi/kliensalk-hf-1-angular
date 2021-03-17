@@ -36,15 +36,23 @@
   </table>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="!listView">
-  <div class="col" *ngFor="let show of shows">
+<div class="row row-cols-md-2 row-cols-1" *ngIf="!listView">
+  <div class="col my-1" *ngFor="let show of shows">
     <div class="card">
-      <div class="card-body">
-        <a [routerLink]="['./shows/', show.id]" class="card-title h5">{{show.title}}</a>
-        <h6 class="card-subtitle mb-2 text-muted">{{show.releaseYear}}</h6>
-        <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true"></ngb-rating>
-        <a href="{{show.imdbUrl}}" class="card-link">IMDb</a>
-        <a href="{{show.netflixUrl}}" class="card-link">Netflix</a>
+      <div class="card-body text-center">
+        <a class="card-title h3 text-danger"[routerLink]="['./shows/', show.id]">{{show.title}}</a>
+        <p class="card-subtitle text-muted">{{show.releaseYear}}</p>
+      </div>
+      <div class="card-footer">
+        <div class="row justify-content-between mx-auto">
+          <a href="{{show.imdbUrl}}" class="card-link">IMDb</a>
+          <a href="{{show.netflixUrl}}" class="card-link">Netflix</a>
+          <ngb-rating [rate]="show.myRating" [max]="5" [readonly]="true">
+            <ng-template let-fill="fill" let-index="index">
+              <span class="star" [class.filled]="fill === 100">&#9733;</span>
+            </ng-template>
+          </ngb-rating>
+        </div>
       </div>
     </div>
   </div>
