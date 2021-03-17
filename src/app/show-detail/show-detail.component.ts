@@ -39,8 +39,9 @@ export class ShowDetailComponent implements OnInit {
   }
 
   openModal(content): void {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(response => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(() => {
       this.remove();
-    }, reason => {});
+    }, () => {
+    });
   }
 }
