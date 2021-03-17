@@ -5,6 +5,7 @@
 /deep/ .pagination > li.active > a {
   color: #ffffff !important;
   background-color: #d9534f !important;
+  border-color: #d9534f !important;
 }
 
 .star {

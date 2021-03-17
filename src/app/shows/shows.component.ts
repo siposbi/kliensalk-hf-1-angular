@@ -11,7 +11,7 @@ export class ShowsComponent implements OnInit {
   shows: Show[];
   showsUnPaginated: Show[] = [];
   page = 1;
-  pageSize = 10;
+  pageSize = 12;
   collectionSize;
   listView = true;
 
