@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
@@ -23,8 +23,8 @@ export class ShowEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.isInEditMode = id === 0;
-    if (!this.isInEditMode) {
+    this.isInEditMode = id !== 0;
+    if (this.isInEditMode) {
       this.getShow(id);
     } else {
       this.show = {
@@ -57,6 +57,7 @@ export class ShowEditComponent implements OnInit {
     if (this.isInEditMode) {
       this.showService.updateShow(this.show).subscribe(() => this.goBack());
     } else {
+      console.log('new show');
       this.showService.addShow(this.show).subscribe(() => this.goBack());
     }
   }
