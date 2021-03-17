@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {ShowService} from '../model/api/show.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,7 @@ export class ShowDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private showService: ShowService,
     private location: Location,
     private modalService: NgbModal
@@ -31,11 +32,15 @@ export class ShowDetailComponent implements OnInit {
   }
 
   remove(): void {
-    this.showService.deleteShow(this.show.id).subscribe(() => this.goBack());
+    this.showService.deleteShow(this.show.id).subscribe(() => this.goToRoot());
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  goToRoot(): void {
+    this.router.navigate(['..']);
   }
 
   openModal(content): void {

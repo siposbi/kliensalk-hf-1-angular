@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {ShowService} from '../model/api/show.service';
 
@@ -16,6 +16,7 @@ export class ShowEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private showService: ShowService,
     private location: Location
   ) {
@@ -50,14 +51,17 @@ export class ShowEditComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    if (this.isInEditMode){
+      this.location.back();
+    } else {
+      this.router.navigate(['..']);
+    }
   }
 
   save(): void {
     if (this.isInEditMode) {
       this.showService.updateShow(this.show).subscribe(() => this.goBack());
     } else {
-      console.log('new show');
       this.showService.addShow(this.show).subscribe(() => this.goBack());
     }
   }
