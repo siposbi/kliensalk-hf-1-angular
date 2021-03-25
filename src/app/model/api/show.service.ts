@@ -8,10 +8,10 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ShowService {
-  private showsUrl = 'api/shows';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+  private showsUrl = 'api/shows';
 
   constructor(
     private http: HttpClient
@@ -29,15 +29,6 @@ export class ShowService {
     return this.http.get<Show>(url).pipe(
       catchError(this.handleError<Show>(`getShow id=${id}`))
     );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T): any {
-    return (error: any): Observable<T> => {
-
-      console.error(error);
-
-      return of(result as T);
-    };
   }
 
   updateShow(show: Show): Observable<any> {
@@ -59,5 +50,14 @@ export class ShowService {
     return this.http.delete<Show>(url, this.httpOptions).pipe(
       catchError(this.handleError<Show>('deleteShow'))
     );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T): any {
+    return (error: any): Observable<T> => {
+
+      console.error(error);
+
+      return of(result as T);
+    };
   }
 }
