@@ -26,21 +26,12 @@ export class ShowDetailComponent implements OnInit {
     this.getShow();
   }
 
-  private getShow(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.showService.getShow(id).subscribe(show => this.show = show);
-  }
-
   remove(): void {
     this.showService.deleteShow(this.show.id).subscribe(() => this.goToRoot());
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-
   goToRoot(): void {
-    this.router.navigate(['..']);
+    this.router.navigateByUrl('/');
   }
 
   openModal(content): void {
@@ -48,5 +39,10 @@ export class ShowDetailComponent implements OnInit {
       this.remove();
     }, () => {
     });
+  }
+
+  getShow(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.showService.getShow(id).subscribe(show => this.show = show);
   }
 }

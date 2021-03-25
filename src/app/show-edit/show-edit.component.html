@@ -2,34 +2,36 @@
 <div *ngIf="show" class="p-3">
   <form #loginForm="ngForm" (submit)="save()">
     <div class="mb-3">
-      <label for="showId" class="form-label">ID:</label>
-      <input type="number" class="form-control" id="showId" name="id" [(ngModel)]="show.id" disabled>
+      <label class="form-label" for="showId">ID:</label>
+      <input [(ngModel)]="show.id" class="form-control" disabled id="showId" name="id" type="number">
     </div>
     <div class="mb-3">
-      <label for="showTitle" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="showTitle" name="title" [(ngModel)]="show.title" required>
+      <label class="form-label" for="showTitle">Title:</label>
+      <input [(ngModel)]="show.title" class="form-control" id="showTitle" name="title" required type="text">
     </div>
     <div class="mb-3">
-      <label for="releaseYear" class="form-label">Release year:</label>
-      <input type="number" class="form-control" id="releaseYear" name="year" [(ngModel)]="show.releaseYear" required>
+      <label class="form-label" for="releaseYear">Release year:</label>
+      <input [(ngModel)]="show.releaseYear" class="form-control" id="releaseYear" name="year" required type="number">
     </div>
     <div class="mb-3">
-      <label for="imdbUrl" class="form-label">IMDB Url:</label>
-      <input type="url" class="form-control" id="imdbUrl" name="imdb" [(ngModel)]="show.imdbUrl" required>
+      <label class="form-label" for="imdbUrl">IMDB Url:</label>
+      <input [(ngModel)]="show.imdbUrl" class="form-control" id="imdbUrl" name="imdb" required type="url">
     </div>
     <div class="mb-3">
-      <label for="netflixUrl" class="form-label">Netflix url:</label>
-      <input type="url" class="form-control" id="netflixUrl" name="netflix" [(ngModel)]="show.netflixUrl" required>
+      <label class="form-label" for="netflixUrl">Netflix url:</label>
+      <input [(ngModel)]="show.netflixUrl" class="form-control" id="netflixUrl" name="netflix" required type="url">
     </div>
     <div class="mb-3">
-      <label for="coverUrl" class="form-label">Cover url:</label>
-      <input type="url" class="form-control" id="coverUrl" name="cover" [(ngModel)]="show.coverUrl" required>
+      <label class="form-label" for="coverUrl">Cover url:</label>
+      <input [(ngModel)]="show.coverUrl" class="form-control" id="coverUrl" name="cover" required type="url">
     </div>
     <div class="mb-3">
-      <label for="myRating" class="form-label">My rating:</label>
-      <input type="range" class="form-control" id="myRating" name="rating" min="1" max="5" [(ngModel)]="show.myRating" required>
+      <label class="form-label" for="myRating">My rating:</label>
+      <input [(ngModel)]="show.myRating" class="form-control" id="myRating" max="5" min="1" name="rating" required
+             type="range">
     </div>
-    <button class="btn btn-outline-danger" name="cancelButton" (click)="goBack()">{{isInEditMode ? 'Go back' : 'Go menu'}}</button>
-    <button type="submit" class="btn btn-outline-danger ml-2" [disabled]="loginForm.invalid">Save</button>
+    <button (click)="goBack(null)" class="btn btn-outline-danger"
+            name="cancelButton">{{isInEditMode ? 'Go back' : 'Go to shows'}}</button>
+    <button [disabled]="loginForm.invalid" class="btn btn-outline-danger ml-2" type="submit">Save</button>
   </form>
 </div>

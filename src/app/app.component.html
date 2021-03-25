@@ -1,20 +1,20 @@
 <header class="fixed-top">
   <nav class="navbar navbar-dark navbar-expand-md sticky-top">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="''">Sipos's shows</a>
-      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      <a [routerLink]="''" class="navbar-brand">Sipos's shows</a>
+      <button (click)="isMenuCollapsed = !isMenuCollapsed" class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link" [routerLink]="['']">My Shows</a>
+          <li [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="['active']" class="nav-item">
+            <a [routerLink]="['']" class="nav-link">My Shows</a>
           </li>
-          <li class="nav-item " [routerLinkActive]="['active']">
-            <a class="nav-link" [routerLink]="['shows/new']">Add New Show</a>
+          <li [routerLinkActive]="['active']" class="nav-item ">
+            <a [routerLink]="['shows/new']" class="nav-link">Add New Show</a>
           </li>
-          <li class="nav-item " [routerLinkActive]="['active']">
-            <a class="nav-link" [routerLink]="['**']">About Me</a>
+          <li [routerLinkActive]="['active']" class="nav-item ">
+            <a [routerLink]="['**']" class="nav-link">About Me</a>
           </li>
         </ul>
       </div>
@@ -23,7 +23,7 @@
 </header>
 
 <body class="container content">
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 </body>
 
 <footer class="footer fixed-bottom">

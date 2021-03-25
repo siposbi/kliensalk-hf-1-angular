@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Location} from '@angular/common';
 import {ShowService} from '../model/api/show.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class ShowEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private showService: ShowService,
-    private location: Location
+    private showService: ShowService
   ) {
   }
 
@@ -35,7 +33,7 @@ export class ShowEditComponent implements OnInit {
         imdbUrl: '',
         netflixUrl: '',
         coverUrl: undefined,
-        myRating: undefined,
+        myRating: 1,
       };
     }
     if (!this.isInEditMode) {
@@ -43,26 +41,26 @@ export class ShowEditComponent implements OnInit {
     }
   }
 
-  private getShow(id: number): void {
-    this.showService.getShow(id).subscribe(show => {
-      this.show = show;
-      this.pageTitle = `Editing ${show.title}`;
-    });
-  }
-
-  goBack(): void {
-    if (this.isInEditMode){
-      this.location.back();
+  goBack(id): void {
+    if (id === null){
+      this.router.navigateByUrl('/');
     } else {
-      this.router.navigate(['..']);
+      this.router.navigateByUrl(`/shows/${id}`);
     }
   }
 
   save(): void {
     if (this.isInEditMode) {
-      this.showService.updateShow(this.show).subscribe(() => this.goBack());
+      this.showService.updateShow(this.show).subscribe(() => this.goBack(this.show.id));
     } else {
-      this.showService.addShow(this.show).subscribe(() => this.goBack());
+      this.showService.addShow(this.show).subscribe(show => this.goBack(show.id));
     }
+  }
+
+  getShow(id: number): void {
+    this.showService.getShow(id).subscribe(show => {
+      this.show = show;
+      this.pageTitle = `Editing ${show.title}`;
+    });
   }
 }
