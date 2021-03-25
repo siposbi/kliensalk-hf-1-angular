@@ -30,7 +30,7 @@
       <input [(ngModel)]="show.myRating" class="form-control" id="myRating" max="5" min="1" name="rating" required
              type="range">
     </div>
-    <button (click)="goBack(null)" class="btn btn-outline-danger"
+    <button (click)="goBack(show.id)" class="btn btn-outline-danger"
             name="cancelButton">{{isInEditMode ? 'Go back' : 'Go to shows'}}</button>
     <button [disabled]="loginForm.invalid" class="btn btn-outline-danger ml-2" type="submit">Save</button>
   </form>

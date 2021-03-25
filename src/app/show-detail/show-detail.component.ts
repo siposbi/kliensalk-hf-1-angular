@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Show} from '../model/Show';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Location} from '@angular/common';
 import {ShowService} from '../model/api/show.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +16,6 @@ export class ShowDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private showService: ShowService,
-    private location: Location,
     private modalService: NgbModal
   ) {
   }

@@ -42,7 +42,7 @@ export class ShowEditComponent implements OnInit {
   }
 
   goBack(id): void {
-    if (id === null){
+    if (id === undefined && !this.isInEditMode){
       this.router.navigateByUrl('/');
     } else {
       this.router.navigateByUrl(`/shows/${id}`);
